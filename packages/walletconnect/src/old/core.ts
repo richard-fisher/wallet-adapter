@@ -1,7 +1,6 @@
 import { PublicKey, SystemProgram, Transaction, Connection, Account } from '@solana/web3.js';
 import WalletConnectClient from '@walletconnect/client';
 import { AppMetadata, SessionTypes } from '@walletconnect/types';
-import * as R from 'ramda';
 import * as nacl from 'tweetnacl';
 
 export type TransactionRequest = {
@@ -96,10 +95,10 @@ export const waitForPairing = async (
         metadata,
         permissions: {
             blockchain: {
-                chains: chains && R.type(chains) === 'Array' ? (chains as string[]) : defaultChainIds,
+                chains: chains && Array.isArray(chains) ? (chains as string[]) : defaultChainIds,
             },
             jsonrpc: {
-                methods: methods && R.type(methods) === 'Array' ? (methods as string[]) : defaultJsonRpcMethods,
+                methods: methods && Array.isArray(methods) ? (methods as string[]) : defaultJsonRpcMethods,
             },
         },
     });
@@ -109,7 +108,7 @@ export const waitForPairing = async (
     }
 
     const connectedAccount = session.state.accounts[0];
-    const address = R.pipe(R.split('@'), R.head)(connectedAccount);
+    const address = connectedAccount.split('@')[0];
     if (!address) {
         throw new Error(`Unable to extract public key from returned account ${connectedAccount}`);
     }

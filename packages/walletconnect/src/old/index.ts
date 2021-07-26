@@ -17,15 +17,9 @@ import {
 import WalletConnectClient, { CLIENT_EVENTS } from '@walletconnect/client';
 import { AppMetadata, ClientTypes, SessionTypes } from '@walletconnect/types';
 
-export {
-    TransactionRequest,
-    SolanaWalletConnectEvent,
-    SignTransactionPayload,
-    ChainIdType,
-    defaultChainIds,
-    defaultJsonRpcMethods,
-    PairResult,
-};
+export type { TransactionRequest, SignTransactionPayload, PairResult };
+
+export { SolanaWalletConnectEvent, ChainIdType, defaultChainIds, defaultJsonRpcMethods };
 
 export interface SolanaWalletConnectInterface {
     _client: WalletConnectClient | null;

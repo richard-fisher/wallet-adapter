@@ -1,7 +1,9 @@
 import {
+    EventEmitter,
     WalletAdapter,
     WalletAdapterEvents,
     WalletConnectionError,
+    WalletDisconnectionError,
     WalletError,
     WalletKeypairError,
     WalletNotConnectedError,
@@ -12,7 +14,6 @@ import {
 import { Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import OpenLogin, { OPENLOGIN_NETWORK, OPENLOGIN_NETWORK_TYPE } from '@toruslabs/openlogin';
 import { getED25519Key } from '@toruslabs/openlogin-ed25519';
-import EventEmitter from 'eventemitter3';
 
 export interface TorusWalletAdapterConfig {
     clientId: string;
@@ -131,7 +132,7 @@ export class TorusWalletAdapter extends EventEmitter<WalletAdapterEvents> implem
                 await provider.logout();
                 await provider._cleanup();
             } catch (error) {
-                this.emit('error', error);
+                this.emit('error', new WalletDisconnectionError(error.message, error));
             }
 
             this.emit('disconnect');

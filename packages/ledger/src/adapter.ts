@@ -1,15 +1,16 @@
 import Transport from '@ledgerhq/hw-transport';
 import TransportWebHid from '@ledgerhq/hw-transport-webhid';
 import {
+    EventEmitter,
     WalletAdapter,
     WalletAdapterEvents,
     WalletConnectionError,
+    WalletDisconnectionError,
     WalletNotConnectedError,
     WalletPublicKeyError,
     WalletSignatureError,
 } from '@solana/wallet-adapter-base';
 import { PublicKey, Transaction } from '@solana/web3.js';
-import EventEmitter from 'eventemitter3';
 import { getDerivationPath, getPublicKey, signTransaction } from './util';
 
 export interface LedgerWalletAdapterConfig {
@@ -95,7 +96,7 @@ export class LedgerWalletAdapter extends EventEmitter<WalletAdapterEvents> imple
             try {
                 await provider.close();
             } catch (error) {
-                this.emit('error', error);
+                this.emit('error', new WalletDisconnectionError(error.message, error));
             }
 
             this.emit('disconnect');

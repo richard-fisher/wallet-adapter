@@ -1,9 +1,11 @@
 import Wallet from '@project-serum/sol-wallet-adapter';
 import {
+    EventEmitter,
     WalletAdapter,
     WalletAdapterEvents,
     WalletAdapterNetwork,
     WalletConnectionError,
+    WalletDisconnectionError,
     WalletError,
     WalletNotConnectedError,
     WalletSignatureError,
@@ -11,7 +13,6 @@ import {
     WalletWindowClosedError,
 } from '@solana/wallet-adapter-base';
 import { PublicKey, Transaction } from '@solana/web3.js';
-import EventEmitter from 'eventemitter3';
 
 export interface SolletWalletAdapterConfig {
     provider?: string | { postMessage: (...args: unknown[]) => unknown };
@@ -107,7 +108,7 @@ export class SolletWalletAdapter extends EventEmitter<WalletAdapterEvents> imple
             try {
                 await wallet.disconnect();
             } catch (error) {
-                this.emit('error', error);
+                this.emit('error', new WalletDisconnectionError(error.message, error));
             }
 
             this.emit('disconnect');

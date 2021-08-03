@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "@solana/wallet-adapter",
-    "version": "0.1.0",
+    "version": "0.4.0",
     "author": "Solana Maintainers <maintainers@solana.foundation>",
     "repository": "https://github.com/solana-labs/wallet-adapter",
     "license": "Apache-2.0",
@@ -15,16 +15,19 @@
         "access": "public"
     },
     "scripts": {
+        "build": "lerna run build",
+        "test": "lerna run test",
+        "publish": "lerna publish from-package",
         "deploy": "yarn deploy:docs && yarn deploy:example",
-        "deploy:docs": "yarn docs && gh-pages -d docs",
-        "deploy:example": "cd packages/example && yarn build && cd ../.. && gh-pages -e example -d packages/example/build",
-        "docs": "rm -rf docs/* && typedoc --packages .",
+        "deploy:docs": "yarn docs && gh-pages --dist docs --dotfiles",
+        "deploy:example": "gh-pages --dist packages/example/build --dest example --dotfiles",
+        "docs": "rm -rf docs && typedoc && cp .nojekyll docs/",
         "fmt": "prettier --write '{*,**/*}.{js,ts,jsx,tsx,json}'",
         "lint": "eslint . --ext .ts && prettier --check '{*,**/*}.{js,ts,jsx,tsx,json}'",
-        "lint:fix": "eslint . --ext .ts --fix && prettier --write '{*,**/*}.{js,ts,jsx,tsx,json}'"
+        "lint:fix": "eslint . --ext .ts --fix && prettier --write '{*,**/*}.{js,ts,jsx,tsx,json}'",
+        "nuke": "rm -rf {.,packages/*}/{node_modules,yarn.lock}"
     },
     "devDependencies": {
-        "@solana/web3.js": "^1.20.0",
         "@types/eslint": "^7.2.13",
         "@types/eslint-plugin-prettier": "^3.1.0",
         "@types/node": "^16.0.0",

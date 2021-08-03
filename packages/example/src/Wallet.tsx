@@ -1,4 +1,5 @@
 import { FormControlLabel, Switch, Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '@material-ui/core';
+import { WalletError } from '@solana/wallet-adapter-base';
 import {
     WalletConnectButton,
     WalletDialogButton,
@@ -18,27 +19,27 @@ import {
 import { useSnackbar } from 'notistack';
 import React, { FC, useCallback, useMemo } from 'react';
 
-export const WalletExample: FC = () => {
-    const { enqueueSnackbar } = useSnackbar();
+const Wallet: FC = () => {
     const [autoConnect, setAutoConnect] = useLocalStorage('autoConnect', false);
 
     const wallets = useMemo(
         () => [
             getPhantomWallet(),
-            getLedgerWallet(),
             getTorusWallet({
                 clientId: 'BOM5Cl7PXgE9Ylq1Z1tqzhpydY0RVr8k90QQ85N7AKI5QGSrr9iDC-3rvmy0K_hF0JfpLMiXoDhta68JwcxS1LQ',
             }),
+            getLedgerWallet(),
             getSolongWallet(),
-            // getWalletConnectWallet(), // @FIXME
             getMathWallet(),
             getSolletWallet(),
+            // getWalletConnectWallet(), // @FIXME
         ],
         []
     );
 
+    const { enqueueSnackbar } = useSnackbar();
     const onError = useCallback(
-        (error: Error) => {
+        (error: WalletError) => {
             enqueueSnackbar(error.message ? `${error.name}: ${error.message}` : error.name, { variant: 'error' });
             console.error(error);
         },
@@ -46,7 +47,7 @@ export const WalletExample: FC = () => {
     );
 
     return (
-        <WalletProvider wallets={wallets} onError={onError} autoConnect={autoConnect}>
+        <WalletProvider wallets={wallets} onError={onError} autoConnect>
             <WalletDialogProvider>
                 <Table>
                     <TableHead>
@@ -104,3 +105,5 @@ export const WalletExample: FC = () => {
         </WalletProvider>
     );
 };
+
+export default Wallet;

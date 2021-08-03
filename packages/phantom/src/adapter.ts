@@ -1,9 +1,11 @@
 import {
+    EventEmitter,
     pollUntilReady,
     WalletAccountError,
     WalletAdapter,
     WalletAdapterEvents,
     WalletConnectionError,
+    WalletDisconnectionError,
     WalletError,
     WalletNotConnectedError,
     WalletNotFoundError,
@@ -13,16 +15,15 @@ import {
     WalletWindowClosedError,
 } from '@solana/wallet-adapter-base';
 import { PublicKey, Transaction } from '@solana/web3.js';
-import EventEmitter from 'eventemitter3';
 
-export interface PhantomProviderEvents {
+interface PhantomProviderEvents {
     connect: (...args: unknown[]) => unknown;
     disconnect: (...args: unknown[]) => unknown;
 }
 
 interface PhantomProvider extends EventEmitter<PhantomProviderEvents> {
     isPhantom?: boolean;
-    // Due to weird Phantom bug where their public key isn't quite like ours
+    // HACK: Phantom's PublicKey isn't quite like ours
     publicKey?: { toBuffer(): Buffer };
     isConnected: boolean;
     autoApprove: boolean;
@@ -153,7 +154,7 @@ export class PhantomWalletAdapter extends EventEmitter<WalletAdapterEvents> impl
             try {
                 await provider.disconnect();
             } catch (error) {
-                this.emit('error', error);
+                this.emit('error', new WalletDisconnectionError(error.message, error));
             }
 
             this.emit('disconnect');

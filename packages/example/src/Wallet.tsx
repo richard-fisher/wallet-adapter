@@ -59,7 +59,7 @@ const Wallet: FC = () => {
     );
 
     return (
-        <WalletProvider wallets={wallets} onError={onError} autoConnect>
+        <WalletProvider wallets={wallets} onError={onError} autoConnect={autoConnect}>
             <WalletDialogProvider>
                 <Table>
                     <TableHead>

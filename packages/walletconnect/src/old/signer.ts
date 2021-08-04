@@ -3,9 +3,9 @@ import { Connection, Keypair, PublicKey, SystemProgram, Transaction } from '@sol
 import WalletConnectClient, { CLIENT_EVENTS } from '@walletconnect/client';
 import { AppMetadata, ClientTypes, SessionTypes } from '@walletconnect/types';
 import {
-    ChainIdType,
+    WalletConnectChainId,
     SignTransactionPayload,
-    SolanaRPCMethodType,
+    WalletConnectRPCMethod,
     SolanaWalletConnectEvent,
     SolanaWalletConnectEventPayload,
     TransactionRequest,
@@ -36,7 +36,7 @@ export class SolanaWalletConnectSigner extends EventEmitter {
 
             const { method, params } = request;
             // we only emit events for supported methods
-            if (method === SolanaRPCMethodType.SOL_SIGN_TRANSACTION) {
+            if (method === WalletConnectRPCMethod.SOL_SIGN_TRANSACTION) {
                 const transactionRequest: TransactionRequest = params;
                 this.emit(SolanaWalletConnectEvent.REQUEST_SIGN_TRANSACTION, {
                     transactionRequest,
@@ -54,7 +54,7 @@ export class SolanaWalletConnectSigner extends EventEmitter {
     async approvePairing(
         proposal: SessionTypes.Proposal,
         metadata: AppMetadata,
-        chainId: ChainIdType = ChainIdType.SOL1
+        chainId: WalletConnectChainId = WalletConnectChainId.SOL1
     ): Promise<SessionTypes.Settled> {
         const publicKey = this._keypair.publicKey.toBase58();
 

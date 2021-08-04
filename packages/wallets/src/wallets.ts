@@ -5,6 +5,7 @@ import { PhantomWalletAdapter, PhantomWalletAdapterConfig } from '@solana/wallet
 import { SolletWalletAdapter, SolletWalletAdapterConfig } from '@solana/wallet-adapter-sollet';
 import { SolongWalletAdapter, SolongWalletAdapterConfig } from '@solana/wallet-adapter-solong';
 import { TorusWalletAdapter, TorusWalletAdapterConfig } from '@solana/wallet-adapter-torus';
+import { WalletConnectWalletAdapter, WalletConnectWalletAdapterConfig } from '@solana/wallet-adapter-walletconnect';
 
 export enum WalletName {
     Phantom = 'Phantom',
@@ -13,7 +14,7 @@ export enum WalletName {
     Solong = 'Solong',
     MathWallet = 'MathWallet',
     Sollet = 'Sollet',
-    // WalletConnect = 'WalletConnect',
+    WalletConnect = 'WalletConnect',
 }
 
 export interface Wallet {
@@ -67,10 +68,10 @@ export const getSolletWallet = (config?: SolletWalletAdapterConfig): Wallet => (
     adapter: () => new SolletWalletAdapter(config),
 });
 
-// @FIXME:
-// export const getWalletConnectWallet = (config?: WalletConnectWalletAdapterConfig): Wallet => ({
-//     name: WalletName.WalletConnect,
-//     url: 'https://walletconnect.org',
-//     icon: `${ASSETS_URL}/walletconnect.svg`,
-//     adapter: () => new WalletConnectWalletAdapter(config),
-// });
+export const getWalletConnectWallet = (config: WalletConnectWalletAdapterConfig): Wallet => ({
+    name: WalletName.WalletConnect,
+    url: 'https://walletconnect.org',
+    // icon: `${ICONS_URL}/walletconnect.svg`, @FIXME
+    icon: 'https://walletconnect.org/walletconnect-logo.svg',
+    adapter: () => new WalletConnectWalletAdapter(config),
+});

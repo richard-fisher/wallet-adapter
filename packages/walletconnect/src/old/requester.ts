@@ -1,10 +1,10 @@
 import { EventEmitter } from '@solana/wallet-adapter-base';
 import WalletConnectClient from '@walletconnect/client';
 import { AppMetadata } from '@walletconnect/types';
-import { ChainIdType, PairResult, SolanaRPCMethodType, TransactionRequest } from './types';
+import { WalletConnectChainId, PairResult, WalletConnectRPCMethod, TransactionRequest } from './types';
 
-export const defaultChainIds = [ChainIdType.SOL1];
-export const defaultJsonRpcMethods = [SolanaRPCMethodType.SOL_SIGN_TRANSACTION];
+export const defaultChainIds = [WalletConnectChainId.SOL1];
+export const defaultJsonRpcMethods = [WalletConnectRPCMethod.SOL_SIGN_TRANSACTION];
 
 export class SolanaWalletConnectRequester extends EventEmitter {
     private _client: WalletConnectClient;
@@ -47,13 +47,13 @@ export class SolanaWalletConnectRequester extends EventEmitter {
     async requestSignTransaction(
         topic: string,
         transaction: TransactionRequest,
-        chainId: ChainIdType = ChainIdType.SOL1
+        chainId: WalletConnectChainId = WalletConnectChainId.SOL1
     ): Promise<Buffer> {
         return await this._client.request({
             topic,
             chainId,
             request: {
-                method: SolanaRPCMethodType.SOL_SIGN_TRANSACTION,
+                method: WalletConnectRPCMethod.SOL_SIGN_TRANSACTION,
                 params: transaction,
             },
         });

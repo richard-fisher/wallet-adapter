@@ -15,6 +15,7 @@ import {
     getSolletWallet,
     getSolongWallet,
     getTorusWallet,
+    getWalletConnectWallet,
 } from '@solana/wallet-adapter-wallets';
 import { useSnackbar } from 'notistack';
 import React, { FC, useCallback, useMemo } from 'react';
@@ -28,11 +29,22 @@ const Wallet: FC = () => {
             getTorusWallet({
                 clientId: 'BOM5Cl7PXgE9Ylq1Z1tqzhpydY0RVr8k90QQ85N7AKI5QGSrr9iDC-3rvmy0K_hF0JfpLMiXoDhta68JwcxS1LQ',
             }),
+            getWalletConnectWallet({
+                options: {
+                    relayProvider: 'wss://relay.walletconnect.org',
+                    logger: 'debug',
+                    metadata: {
+                        name: 'Example Dapp',
+                        description: 'Example Dapp',
+                        url: '#',
+                        icons: ['https://walletconnect.org/walletconnect-logo.png'],
+                    },
+                },
+            }),
             getLedgerWallet(),
             getSolongWallet(),
             getMathWallet(),
             getSolletWallet(),
-            // getWalletConnectWallet(), // @FIXME
         ],
         []
     );

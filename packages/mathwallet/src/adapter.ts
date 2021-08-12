@@ -16,6 +16,7 @@ import { PublicKey, Transaction } from '@solana/web3.js';
 interface MathWallet {
     isMathWallet?: boolean;
     getAccount: () => Promise<string>;
+    signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }>;
     signTransaction: (transaction: Transaction) => Promise<Transaction>;
     signAllTransactions: (transactions: Transaction[]) => Promise<Transaction[]>;
 }
@@ -113,6 +114,10 @@ export class MathWalletWalletAdapter extends EventEmitter<WalletAdapterEvents> i
 
             this.emit('disconnect');
         }
+    }
+
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        throw new Error('not implemented');
     }
 
     async signTransaction(transaction: Transaction): Promise<Transaction> {

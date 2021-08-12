@@ -26,6 +26,7 @@ interface SolflareWallet extends EventEmitter<SolflareWalletEvents> {
     publicKey?: { toBuffer(): Buffer };
     isConnected: boolean;
     autoApprove: boolean;
+    signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }>;
     signTransaction: (transaction: Transaction) => Promise<Transaction>;
     signAllTransactions: (transactions: Transaction[]) => Promise<Transaction[]>;
     connect: () => Promise<boolean>;
@@ -139,6 +140,10 @@ export class SolflareWalletAdapter extends EventEmitter<WalletAdapterEvents> imp
 
             this.emit('disconnect');
         }
+    }
+
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        throw new Error('not implemented');
     }
 
     async signTransaction(transaction: Transaction): Promise<Transaction> {

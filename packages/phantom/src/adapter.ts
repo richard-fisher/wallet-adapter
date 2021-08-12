@@ -28,6 +28,7 @@ interface PhantomWallet extends EventEmitter<PhantomWalletEvents> {
     publicKey?: { toBuffer(): Buffer };
     isConnected: boolean;
     autoApprove: boolean;
+    signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }>;
     signTransaction: (transaction: Transaction) => Promise<Transaction>;
     signAllTransactions: (transactions: Transaction[]) => Promise<Transaction[]>;
     connect: () => Promise<void>;
@@ -163,6 +164,24 @@ export class PhantomWalletAdapter extends EventEmitter<WalletAdapterEvents> impl
             }
 
             this.emit('disconnect');
+        }
+    }
+
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        try {
+            const wallet = this._wallet;
+            if (!wallet) throw new WalletNotConnectedError();
+
+            try {
+                return wallet.signMessage(message, "utf8");
+            } catch (error) {
+                console.log(error);
+                throw new WalletSignatureError(error?.message, error);
+            }
+        } catch (error) {
+            console.log(error);
+            this.emit('error', error);
+            throw error;
         }
     }
 

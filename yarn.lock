@@ -2570,6 +2570,11 @@
   dependencies:
     buffer "~6.0.3"
 
+"@solana/wallet-adapter-base@/Users/richard/Projects/wallet-adapter/packages/base":
+  version "0.4.1"
+  dependencies:
+    eventemitter3 "^4.0.7"
+
 "@solana/web3.js@^1.20.0", "@solana/web3.js@^1.22.0":
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/@solana/web3.js/-/web3.js-1.23.0.tgz#74f81d074c1b13aeb286990edde6f2e4c7301731"

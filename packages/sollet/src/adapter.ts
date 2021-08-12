@@ -121,6 +121,22 @@ export class SolletWalletAdapter extends EventEmitter<WalletAdapterEvents> imple
         }
     }
 
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        try {
+            const wallet = this._wallet;
+            if (!wallet) throw new WalletNotConnectedError();
+
+            try {
+                return wallet.sign(message, "utf8");
+            } catch (error) {
+                throw new WalletSignatureError(error?.message, error);
+            }
+        } catch (error) {
+            this.emit('error', error);
+            throw error;
+        }
+    }
+
     async signTransaction(transaction: Transaction): Promise<Transaction> {
         try {
             const wallet = this._wallet;

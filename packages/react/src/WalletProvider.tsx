@@ -111,6 +111,24 @@ export const WalletProvider: FC<WalletProviderProps> = ({
         }
     }, [disconnecting, adapter, select, setDisconnecting]);
 
+    const signMessage = useCallback(
+        async (message: Uint8Array, display: unknown) => {
+            if (!adapter) {
+                const error = new WalletNotSelectedError();
+                onError(error);
+                throw error;
+            }
+            if (!connected) {
+                const error = new WalletNotConnectedError();
+                onError(error);
+                throw error;
+            }
+
+            return await adapter.signMessage(message, display);
+        },
+        [adapter, onError, connected]
+    );
+
     const signTransaction = useCallback(
         async (transaction: Transaction) => {
             if (!adapter) {
@@ -206,6 +224,7 @@ export const WalletProvider: FC<WalletProviderProps> = ({
                 autoApprove,
                 connect,
                 disconnect,
+                signMessage,
                 signTransaction,
                 signAllTransactions,
             }}

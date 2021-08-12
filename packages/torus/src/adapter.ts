@@ -135,6 +135,10 @@ export class TorusWalletAdapter extends EventEmitter<WalletAdapterEvents> implem
         }
     }
 
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        throw new Error('not implemented');
+    }
+
     async signTransaction(transaction: Transaction): Promise<Transaction> {
         try {
             const keypair = this._keypair;

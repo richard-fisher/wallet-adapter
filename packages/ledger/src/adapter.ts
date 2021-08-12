@@ -104,6 +104,10 @@ export class LedgerWalletAdapter extends EventEmitter<WalletAdapterEvents> imple
         }
     }
 
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        throw new Error('not implemented');
+    }
+
     async signTransaction(transaction: Transaction): Promise<Transaction> {
         try {
             const transport = this._transport;

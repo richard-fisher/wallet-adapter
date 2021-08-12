@@ -14,6 +14,7 @@ import { PublicKey, Transaction } from '@solana/web3.js';
 interface SolongWallet {
     currentAccount?: string | null;
     selectAccount: () => Promise<string>;
+    signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }>;
     signTransaction: (transaction: Transaction) => Promise<Transaction>;
 }
 
@@ -103,6 +104,10 @@ export class SolongWalletAdapter extends EventEmitter<WalletAdapterEvents> imple
 
             this.emit('disconnect');
         }
+    }
+
+    async signMessage(message: Uint8Array, display: unknown): Promise<{ signature: Buffer; publicKey: PublicKey; }> {
+        throw new Error('not implemented');
     }
 
     async signTransaction(transaction: Transaction): Promise<Transaction> {

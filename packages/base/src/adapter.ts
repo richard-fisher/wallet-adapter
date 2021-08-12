@@ -20,6 +20,7 @@ export interface WalletAdapter extends EventEmitter<WalletAdapterEvents> {
 
     connect: () => Promise<void>;
     disconnect: () => Promise<void>;
+    signMessage: (message: Uint8Array, display: unknown) => Promise<{ signature: Buffer; publicKey: PublicKey; }>;
     signTransaction: (transaction: Transaction) => Promise<Transaction>;
     signAllTransactions: (transaction: Transaction[]) => Promise<Transaction[]>;
 }

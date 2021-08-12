@@ -1,3 +1,6 @@
+This is a fork of the official Solana Labs wallet adapter which is here [https://github.com/solana-labs/wallet-adapter](https://github.com/solana-labs/wallet-adapter)
+
+The reason that I forked it was to add signMessage but I've only added in to Phantom and Sollet wallets and other wallets will return a 'not implemented' error.  There's nearly no reason for you to use this fork.  Please use the official Solana Labs project.
 # `@solana/wallet-adapter`
 
 Modular TypeScript wallet adapters and components for Solana applications.

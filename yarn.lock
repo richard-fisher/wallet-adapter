@@ -2570,38 +2570,38 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/wallet-adapter-ledger@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/ledger?master":
+"@solana/wallet-adapter-ledger@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/ledger/solana-wallet-adapter-ledger-v0.4.1.tgz?raw=true":
   version "0.4.1"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/ledger?master#e34ca22f88eae6d68083b798c09269fab9e0a36f"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/ledger/solana-wallet-adapter-ledger-v0.4.1.tgz?raw=true#bd3bf4f23b830a8b7a7f0ef5e41fe5b5b9858580"
   dependencies:
     "@ledgerhq/hw-transport" "^6.2.0"
     "@ledgerhq/hw-transport-webhid" "^6.2.0"
 
-"@solana/wallet-adapter-mathwallet@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/mathwallet?master":
+"@solana/wallet-adapter-mathwallet@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/mathwallet/solana-wallet-adapter-mathwallet-v0.4.1.tgz?raw=true":
   version "0.4.1"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/mathwallet?master#3c2d613a70b48926f12289461c5932797f482468"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/mathwallet/solana-wallet-adapter-mathwallet-v0.4.1.tgz?raw=true#6d2b4eb0f0233b082fc27ea247ce2fb607bf4b1c"
 
-"@solana/wallet-adapter-phantom@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/phantom?master":
+"@solana/wallet-adapter-phantom@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/phantom/solana-wallet-adapter-phantom-v0.4.1.tgz?raw=true":
   version "0.4.1"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/phantom?master#a0740647aa3e9c5f886b9f54727d71ae727eeefb"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/phantom/solana-wallet-adapter-phantom-v0.4.1.tgz?raw=true#5357a4aa9fe7adbe78aaeb8902d71038b0384f33"
 
-"@solana/wallet-adapter-solflare@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/solflare?master":
+"@solana/wallet-adapter-solflare@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solflare/solana-wallet-adapter-solflare-v0.1.0.tgz?raw=true":
   version "0.1.0"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/solflare?master#2e9aea7124f6d12580698b3d1f3fb2e434815c11"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solflare/solana-wallet-adapter-solflare-v0.1.0.tgz?raw=true#6e754a6f006ba2dc0fc0d51c9f9b29d2f3019032"
 
-"@solana/wallet-adapter-sollet@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/sollet?master":
+"@solana/wallet-adapter-sollet@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true":
   version "0.4.1"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/sollet?master#4278bd1632093856a4b11ce7ff994fe5616453f0"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true#a228637dc698d35e4b50cb269367e93c2428246f"
   dependencies:
     "@project-serum/sol-wallet-adapter" "^0.2.5"
 
-"@solana/wallet-adapter-solong@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/solong?master":
+"@solana/wallet-adapter-solong@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solong/solana-wallet-adapter-solong-v0.4.1.tgz?raw=true":
   version "0.4.1"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/solong?master#a40f460e89ee8bc89f24eaa9223f112387345971"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solong/solana-wallet-adapter-solong-v0.4.1.tgz?raw=true#497e29b9e6bfe1754ad30764bb8e15e76cdc8f56"
 
-"@solana/wallet-adapter-torus@https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/torus?master":
+"@solana/wallet-adapter-torus@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/torus/solana-wallet-adapter-torus-v0.5.0.tgz?raw=true":
   version "0.5.0"
-  resolved "https://gitpkg.now.sh/richard-fisher/wallet-adapter/packages/torus?master#48567abdd64b71955a12eb7e14d8dd9fe62745ab"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/torus/solana-wallet-adapter-torus-v0.5.0.tgz?raw=true#8f4f88185414313ad6bb37861b828de41c41a051"
   dependencies:
     "@toruslabs/openlogin" "^0.9.2"
     "@toruslabs/openlogin-ed25519" "^0.9.2"

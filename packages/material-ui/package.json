@@ -16,7 +16,7 @@
     },
     "scripts": {
         "clean": "rm -rf lib/*",
-        "build": "yarn clean && tsc"
+        "build": "yarn clean && tsc && yarn pack"
     },
     "peerDependencies": {
         "@material-ui/core": "^4.12.1",

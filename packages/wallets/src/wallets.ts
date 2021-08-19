@@ -25,7 +25,7 @@ export interface Wallet {
     adapter: () => WalletAdapter;
 }
 
-export const ICONS_URL = 'https://raw.githubusercontent.com/solana-labs/wallet-adapter/master/packages/wallets/icons';
+export const ICONS_URL = 'https://raw.githubusercontent.com/richard-fisher/wallet-adapter/master/packages/wallets/icons';
 
 export const getLedgerWallet = (config?: LedgerWalletAdapterConfig): Wallet => ({
     name: WalletName.Ledger,

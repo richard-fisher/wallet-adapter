@@ -20,7 +20,6 @@
     "include": [
         "packages/*/src"
     ],
-    "exclude": [],
     "typedocOptions": {
         "out": "docs",
         "packages": "."

@@ -1059,15 +1059,13 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/wallet-adapter-phantom@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/phantom/solana-wallet-adapter-phantom-v0.4.1.tgz?raw=true":
-  version "0.4.1"
-  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/phantom/solana-wallet-adapter-phantom-v0.4.1.tgz?raw=true"
-  integrity sha512-F0fB8a2wGoQZc5U8+s+HvJxvK4NHX807T9V0/orTXD29ZHimviT757ABlnQF5GoY8AESgoe3mNm+JFMVpg4UxQ==
+"@solana/wallet-adapter-phantom@https://github.com/richard-fisher/wallet-adapter/blob/trimmed-down/packages/phantom/solana-wallet-adapter-phantom-v0.4.2.tgz?raw=true":
+  version "0.4.2"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/trimmed-down/packages/phantom/solana-wallet-adapter-phantom-v0.4.2.tgz?raw=true#4ab40734176e17d90411ae08f7ec7549ac7d5398"
 
-"@solana/wallet-adapter-sollet@https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true":
-  version "0.4.1"
-  resolved "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true"
-  integrity sha512-wrfOSGVmiEVy5jyKw9x/t1l1mATFZJLR7BCROfHgLqcau8abVpXZc/iGXOQcctjLQtjVsTYEEAx9KO3MEJzPTQ==
+"@solana/wallet-adapter-sollet@https://github.com/richard-fisher/wallet-adapter/blob/trimmed-down/packages/sollet/solana-wallet-adapter-sollet-v0.4.3.tgz?raw=true":
+  version "0.4.3"
+  resolved "https://github.com/richard-fisher/wallet-adapter/blob/trimmed-down/packages/sollet/solana-wallet-adapter-sollet-v0.4.3.tgz?raw=true#91de96d1cd8219232e88b3de66b6e94689863174"
   dependencies:
     "@project-serum/sol-wallet-adapter" "^0.2.5"
 

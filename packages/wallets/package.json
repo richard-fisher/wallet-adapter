@@ -1,6 +1,6 @@
 {
     "name": "@solana/wallet-adapter-wallets",
-    "version": "0.6.3",
+    "version": "0.6.5",
     "author": "Solana Maintainers <maintainers@solana.foundation>",
     "repository": "https://github.com/solana-labs/wallet-adapter",
     "license": "Apache-2.0",
@@ -23,13 +23,8 @@
         "@solana/web3.js": "^1.20.0"
     },
     "dependencies": {
-        "@solana/wallet-adapter-ledger": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/ledger/solana-wallet-adapter-ledger-v0.4.1.tgz?raw=true",
-        "@solana/wallet-adapter-mathwallet": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/mathwallet/solana-wallet-adapter-mathwallet-v0.4.1.tgz?raw=true",
         "@solana/wallet-adapter-phantom": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/phantom/solana-wallet-adapter-phantom-v0.4.1.tgz?raw=true",
-        "@solana/wallet-adapter-solflare": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solflare/solana-wallet-adapter-solflare-v0.1.0.tgz?raw=true",
-        "@solana/wallet-adapter-sollet": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true",
-        "@solana/wallet-adapter-solong": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/solong/solana-wallet-adapter-solong-v0.4.1.tgz?raw=true",
-        "@solana/wallet-adapter-torus": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/torus/solana-wallet-adapter-torus-v0.5.0.tgz?raw=true"
+        "@solana/wallet-adapter-sollet": "https://github.com/richard-fisher/wallet-adapter/blob/master/packages/sollet/solana-wallet-adapter-sollet-v0.4.1.tgz?raw=true"
     },
     "devDependencies": {
         "@solana/wallet-adapter-base": "^0.4.1"
